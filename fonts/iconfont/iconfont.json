@@ -1,0 +1,23 @@
+{
+  "id": "3867764",
+  "name": "春节机票",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4485654",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "23949547",
+      "name": "正确",
+      "font_class": "zhengque",
+      "unicode": "ec6b",
+      "unicode_decimal": 60523
+    }
+  ]
+}
