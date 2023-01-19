@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "20186206",
+      "name": "提醒info",
+      "font_class": "tixinginfo",
+      "unicode": "e7ce",
+      "unicode_decimal": 59342
+    },
+    {
       "icon_id": "4485654",
       "name": "更多",
       "font_class": "gengduo",
