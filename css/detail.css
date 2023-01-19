@@ -1,7 +1,235 @@
 .container {
-	width: 1200px;
+	max-width: 1200px;
 }
 
 .container .top .title {
-	font-size: 0.1563rem;
+	font-size: 8vw;
+}
+
+.container .detail {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 5.3333vw 0;
+}
+
+.container .detail .left {
+	width: 80vw;
+	max-width: 80vw;
+}
+
+.container .detail .left .number {
+	color: #153c6d;
+	font-size: 5.3333vw;
+}
+
+.container .detail .left .item {
+	font-size: 4.2667vw;
+	margin-top: 0.8vw;
+}
+
+.container .detail .right {
+	width: 80vw;
+	max-width: 80vw;
+}
+
+.container .detail .right .top img {
+	width: 69.3333vw;
+	height: 21.3333vw;
+}
+
+.container .detail .right .text {
+	font-size: 3.7333vw;
+	line-height: 4.2667vw;
+}
+
+.container .detail .right .text.last {
+	margin-top: 2.6667vw;
+}
+
+.container .table {
+	margin-bottom: 0;
+}
+
+.container .table .header {
+	font-size: 6.6667vw;
+	font-weight: bold;
+}
+
+.container .table .box {
+	display: flex;
+	flex-direction: column;
+	padding: 2.6667vw 1.3333vw 1.3333vw;
+	border: 0.2667vw solid #9ca993;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	font-size: 4.2667vw;
+}
+
+.container .table .box .name {
+	width: 100vw;
+	padding-bottom: 5.3333vw;
+}
+
+.container .table .box .time,
+.container .table .box .e-ticket,
+.container .table .box .invoice-no,
+.container .table .box .loyalty-no {
+	display: flex;
+	width: 100vw;
+	padding-bottom: 5.3333vw;
+}
+
+.container .table .nameBottom {
+	border-bottom: 0.2667vw solid #9ca993;
+	font-size: 6.6667vw;
+	font-weight: bold;
+}
+
+.container .info {
+	margin-top: 1.3333vw;
+	margin-bottom: 5.3333vw;
+}
+
+.container .info .bold {
+	font-size: 5.3333vw;
+	font-weight: bold;
+}
+
+.container .info .paddingBottom {
+	padding-bottom: 2.6667vw;
+}
+
+.container .info .green {
+	font-size: 5.3333vw;
+	font-weight: bold;
+	color: #50983f;
+}
+
+.container .info .content {
+	font-size: 4.8vw;
+}
+
+@media (min-width: 577px) {
+	.container {
+		width: auto;
+	}
+
+	.container .top .title {
+		font-size: 30px;
+	}
+
+	.container .detail {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px 0;
+	}
+
+	.container .detail .left {
+		padding: 0 0;
+	}
+
+	.container .detail .left .number {
+		color: #153c6d;
+		font-size: 20px;
+	}
+
+	.container .detail .left .item {
+		font-size: 16px;
+		margin-top: 3px;
+	}
+
+	.container .detail .right {
+		max-width: 290px;
+		width: 290px;
+		padding: 0 0;
+	}
+
+	.container .detail .right .top img {
+		width: 260px;
+		height: 80px;
+	}
+
+	.container .detail .right .text {
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	.container .detail .right .text.last {
+		margin-top: 10px;
+	}
+
+	.container .table {
+		margin-bottom: 0;
+	}
+
+	.container .table .header {
+		font-size: 25px;
+		font-weight: bold;
+	}
+
+	.container .table .box {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 10px 5px 5px;
+		border: 1px solid #9ca993;
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+		font-size: 16px;
+	}
+
+	.container .table .box .bottom {
+		position: absolute;
+		top: 20px;
+		height: 20px;
+	}
+
+	.container .table .box .name {
+		position: relative;
+		width: 190px;
+		padding-bottom: 20px;
+	}
+
+	.container .table .box .time,
+	.container .table .box .e-ticket,
+	.container .table .box .invoice-no,
+	.container .table .box .loyalty-no {
+		position: relative;
+		width: 250px;
+		padding-bottom: 20px;
+	}
+
+	.container .table .nameBottom {
+		border-bottom: 1px solid #9ca993;
+		font-size: 25px;
+		font-weight: bold;
+	}
+
+	.container .info {
+		margin-top: 5px;
+		margin-bottom: 20px;
+	}
+
+	.container .info .bold {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.container .info .paddingBottom {
+		padding-bottom: 10px;
+	}
+
+	.container .info .green {
+		font-size: 20px;
+		font-weight: bold;
+		color: #50983f;
+	}
+
+	.container .info .content {
+		font-size: 18px;
+	}
 }
