@@ -1,58 +1,43 @@
-;(function (designWidth, maxWidth) {
-	var doc = document,
-		win = window,
-		docEl = doc.documentElement,
-		remStyle = document.createElement("style"),
-		tid
+;(function flexible(window, document) {
+	var docEl = document.documentElement
+	var dpr = window.devicePixelRatio || 1
 
-	function refreshRem() {
-		var width = docEl.getBoundingClientRect().width
-		maxWidth = maxWidth || 540
-		width > maxWidth && (width = maxWidth)
-		var rem = (width * 100) / designWidth
-		remStyle.innerHTML = "html{font-size:" + rem + "px;}"
+	// adjust body font size
+	function setBodyFontSize() {
+		if (document.body) {
+			document.body.style.fontSize = 12 * dpr + "px"
+		} else {
+			document.addEventListener("DOMContentLoaded", setBodyFontSize)
+		}
+	}
+	setBodyFontSize()
+
+	// set 1rem = viewWidth / 10
+	function setRemUnit() {
+		var rem = docEl.clientWidth / 10
+		docEl.style.fontSize = rem + "px"
 	}
 
-	if (docEl.firstElementChild) {
-		console.log(doc.documentElement)
-		doc.documentElement.appendChild(remStyle)
-	} else {
-		var wrap = doc.createElement("div")
-		wrap.appendChild(remStyle)
-		doc.write(wrap.innerHTML)
-		wrap = null
+	setRemUnit()
+
+	// reset rem unit on page resize
+	window.addEventListener("resize", setRemUnit)
+	window.addEventListener("pageshow", function (e) {
+		if (e.persisted) {
+			setRemUnit()
+		}
+	})
+
+	// detect 0.5px supports
+	if (dpr >= 2) {
+		var fakeBody = document.createElement("body")
+		var testElement = document.createElement("div")
+		testElement.style.border = ".5px solid transparent"
+		fakeBody.appendChild(testElement)
+		docEl.appendChild(fakeBody)
+		if (testElement.offsetHeight === 1) {
+			docEl.classList.add("hairlines")
+		}
+		docEl.removeChild(fakeBody)
 	}
-	refreshRem()
-
-	win.addEventListener(
-		"resize",
-		function () {
-			clearTimeout(tid)
-			tid = setTimeout(refreshRem, 300)
-		},
-		false
-	)
-
-	win.addEventListener(
-		"pageshow",
-		function (e) {
-			if (e.persisted) {
-				clearTimeout(tid)
-				tid = setTimeout(refreshRem, 300)
-			}
-		},
-		false
-	)
-
-	if (doc.readyState === "complete") {
-		doc.body.style.fontSize = "16px"
-	} else {
-		doc.addEventListener(
-			"DOMContentLoaded",
-			function (e) {
-				doc.body.style.fontSize = "16px"
-			},
-			false
-		)
-	}
-})(1920, 1920)
+})(window, document)
